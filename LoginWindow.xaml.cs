@@ -21,4 +21,9 @@ namespace HowrseBot
             Context.CloseAll();
         }
 
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            Context.TryLogin(User.Text, Password.Password.ToString());
+        }
+    }
 }

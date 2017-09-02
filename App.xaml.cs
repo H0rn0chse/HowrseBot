@@ -60,5 +60,15 @@ namespace HowrseBot
             }
         }
 
-	}
+        internal void TryLogin(string name, string password)
+        {
+            loginWindow.IsEnabled = false;
+            if(this.mainViewModel.TryLogin(name, password))
+            {
+                loginWindow.Hide();
+                mainWindow.Show();
+            }
+                loginWindow.IsEnabled = true;
+        }
+    }
 }

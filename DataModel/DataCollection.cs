@@ -18,6 +18,7 @@ namespace HowrseBot.DataModel
         public ObservableCollection<Item> Duration { get; set; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Sort { get; set; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Tarif { get; set; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> EditorProgramm { get; set; } = new ObservableCollection<Item>();
         
         public DataCollection()
 		{

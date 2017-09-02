@@ -26,14 +26,28 @@ namespace HowrseBot.ViewModel
             {
                 _userList.Add(new User("a", "b"));
                 SaveSession();
+                User.Load(_userList[0]);
             }
             else
             {
-                this.User.Load(_userList[0]);
+                User.Load(_userList[0]);
             }
         }
 
-        private void saveSession()
+        public bool TryLogin(string name, string password)
+        {
+            if(HTMLConverter.TryLogin(name, password))
+            {
+                User u = new User(name, password);
+                _userList.Add(u);
+                User.Load(u);
+                return true;
+            }
+            return false;
+        }
+
+        //Updating the old active-user data and saving the complete userlist
+        private void SaveSession()
         {
             int index = -1;
             foreach(User user in _userList)
@@ -45,7 +59,8 @@ namespace HowrseBot.ViewModel
             }
             if(index != -1)
             {
-
+                _userList.RemoveAt(index);
+                _userList.Add(new User(User));
             }
             else
             {
@@ -106,9 +121,11 @@ namespace HowrseBot.ViewModel
 			List<Item> sourceItems = dropInfo.Data as List<Item>;
 			if(sourceItems == null)
 			{
-				sourceItems = new List<Item>();
-				sourceItems.Add(dropInfo.Data as Item);
-			}
+                sourceItems = new List<Item>
+                {
+                    dropInfo.Data as Item
+                };
+            }
 			string target = (dropInfo.VisualTarget as FrameworkElement).Name;
 			string source = (dropInfo.DragInfo.VisualSource as FrameworkElement).Name;
 
@@ -123,7 +140,7 @@ namespace HowrseBot.ViewModel
 			else if(source == "CommandSource" && target == "CommandPanel")
 			{
 				int newIndex = dropInfo.InsertIndex;
-				if (newIndex == (dropInfo.TargetCollection as ObservableCollection<Item>).Count)
+				if (newIndex == (dropInfo.TargetCollection as ObservableCollection<Item>).Count && newIndex != 0)
 				{
 					newIndex -= 1;
 				}
