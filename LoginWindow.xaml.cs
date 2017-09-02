@@ -21,14 +21,13 @@ namespace HowrseBot
 	/// </summary>
 	public partial class LoginWindow : Window
 	{
-		private StartUp context;
+        private App Context;
 
-		public LoginWindow(StartUp c)
+		public LoginWindow(App context)
 		{
 			InitializeComponent();
-			context = c;
-			
-		}
+            Context = context;
+        }
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
