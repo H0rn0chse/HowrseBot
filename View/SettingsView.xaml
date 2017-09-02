@@ -3,19 +3,34 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:viewModel="clr-namespace:HowrseBot.ViewModel"
 			 xmlns:local="clr-namespace:HowrseBot.View"
 			 mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance viewModel:MainViewModel}"
-			 d:DesignHeight="300" d:DesignWidth="300" Width="600" Height="500">
+             
+             DataContext="{StaticResource MainViewModel}"
+             
+			 d:DesignHeight="600" d:DesignWidth="500">
 	<Grid>
-        <CheckBox x:Name="ufo" IsChecked="{Binding User.Ufo}" Content="Ufos fangen" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <ComboBox x:Name="tarif" ItemsSource="{Binding Data.Tarif}" SelectedIndex="{Binding User.Tarif}" HorizontalAlignment="Left" Margin="270,154,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="duration" ItemsSource="{Binding Data.Duration}" SelectedIndex="{Binding User.Duration}" HorizontalAlignment="Left" Margin="270,200,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="sort" ItemsSource="{Binding Data.Sort}" SelectedIndex="{Binding User.Sort}" HorizontalAlignment="Left" Margin="270,250,0,0" VerticalAlignment="Top" Width="120"/>
+        <CheckBox x:Name="Ufo"
+                  Content="Ufos fangen" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"
+                  IsChecked="{Binding User.Ufo}"/>
+        
+        <ComboBox x:Name="Tarif"
+                  SelectedIndex="{Binding User.Tarif}" HorizontalAlignment="Left" Margin="270,154,0,0" VerticalAlignment="Top" Width="120"
+                  ItemsSource="{Binding Data.Tarif}"/>
+        
+        <ComboBox x:Name="Duration"
+                  SelectedIndex="{Binding User.Duration}" HorizontalAlignment="Left" Margin="270,200,0,0" VerticalAlignment="Top" Width="120"
+                  ItemsSource="{Binding Data.Duration}"/>
+        
+        <ComboBox x:Name="Sort"
+                  SelectedIndex="{Binding User.Sort}" HorizontalAlignment="Left" Margin="270,250,0,0" VerticalAlignment="Top" Width="120"
+                  ItemsSource="{Binding Data.Sort}"/>
+        
 		<Label Content="Max. Einstallkosten" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top"/>
 		<Label Content="Einstalldauer" HorizontalAlignment="Left" Margin="100,200,0,0" VerticalAlignment="Top"/>
 		<Label Content="Pferdesortierung" HorizontalAlignment="Left" Margin="100,250,0,0" VerticalAlignment="Top"/>
-		<Button Content="Speichern" HorizontalAlignment="Right" Margin="0,0,50,50" VerticalAlignment="Bottom" Width="75" HorizontalContentAlignment="Center"/>
+        
+		<Button x:Name="Save"
+            Content="Speichern" HorizontalAlignment="Right" Margin="0,0,50,50" VerticalAlignment="Bottom" Width="75" HorizontalContentAlignment="Center"/>
 	</Grid>
 </UserControl>

@@ -5,16 +5,27 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:HowrseBot"
 		mc:Ignorable="d"
-		
-		Closing="Window_Closing" Closed="Window_Closed"
+        
 		WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource MainViewModel}"
+        Closed="Window_Closed"
+        
 		Title="HowrseBot Login" Height="300" Width="300">
 	<Grid>
-		<Button Content="Login" HorizontalAlignment="Center" Height="29.119" Margin="0,210,0,0" VerticalAlignment="Top" Width="87.083" Click="Button_Click" HorizontalContentAlignment="Center"/>
+		<Button x:Name="Login"
+            Content="Login" HorizontalAlignment="Center" Height="29.119" Margin="0,210,0,0" VerticalAlignment="Top" Width="87.083" HorizontalContentAlignment="Center"
+            Click="Login_Click"/>
+        
 		<Label Content="Username" HorizontalAlignment="Left" Margin="35,115,0,0" VerticalAlignment="Top"/>
-		<Label Content="Password" HorizontalAlignment="Left" Margin="35,140,0,0" VerticalAlignment="Top"/>
-		<ComboBox HorizontalAlignment="Left" Margin="140,120,0,0" VerticalAlignment="Top" Width="120"/>
-		<PasswordBox HorizontalAlignment="Left" Margin="140,150,0,0" VerticalAlignment="Top" Password="xxx" Width="120"/>
+		<Label Content="Passwort" HorizontalAlignment="Left" Margin="35,140,0,0" VerticalAlignment="Top"/>
+        
+		<ComboBox x:Name="User"
+            HorizontalAlignment="Left" Margin="140,120,0,0" VerticalAlignment="Top" Width="120"
+            IsEditable="True"
+            ItemsSource="{Binding _userList}" IsTabStop="False"/>
+        
+		<PasswordBox x:Name="Password"
+            Password="" HorizontalAlignment="Left" Margin="140,150,0,0" VerticalAlignment="Top" Width="120"/>
 
 	</Grid>
 

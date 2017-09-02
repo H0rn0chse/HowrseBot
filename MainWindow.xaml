@@ -4,15 +4,16 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:HowrseBot"
-		xmlns:ViewModel="clr-namespace:HowrseBot.ViewModel"
 		xmlns:View="clr-namespace:HowrseBot.View"
 		mc:Ignorable="d"
-		
-		Closing="Window_Closing" Closed="Window_Closed"
-		
+        
+        WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource MainViewModel}"
+        Closed="Window_Closed"
+        
 		Title="HowrseBot" Height="543" Width="824">
 
-	<Grid>
+    <Grid>
 		<TabControl Style="{StaticResource MainTabControlStyle}">
 			<TabItem Header="Queue">
 				<View:QueueView/>
