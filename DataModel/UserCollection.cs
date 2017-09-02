@@ -31,12 +31,12 @@ namespace HowrseBot.DataModel
 
         public void Load(User user)
         {
-            this.Duration = user.duration;
-            this.Name = user.name;
-            this.Password = user.password;
-            this.Sort = user.sort;
-            this.Tarif = user.tarif;
-            this.Ufo = user.ufo;
+            this.Duration = user.Duration;
+            this.Name = user.Name;
+            this.Password = user.Password;
+            this.Sort = user.Sort;
+            this.Tarif = user.Tarif;
+            this.Ufo = user.Ufo;
 
             this.BotProgramList.Clear();
             foreach(BotProgram bp in user.BotProgramList)

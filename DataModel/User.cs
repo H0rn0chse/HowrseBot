@@ -10,12 +10,12 @@ namespace HowrseBot.DataModel
 {
     public class User
     {
-        public string name { get; set; }
-        public string password { get; set; }
-        public int tarif { get; set; }
-        public int duration { get; set; }
-        public int sort { get; set; }
-        public bool ufo { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public int Tarif { get; set; }
+        public int Duration { get; set; }
+        public int Sort { get; set; }
+        public bool Ufo { get; set; }
 
         public List<BotProgram> BotProgramList { get; set; }
 
@@ -24,38 +24,45 @@ namespace HowrseBot.DataModel
 
         public User(UserCollection user)
         {
-            this.name = user.Name;
-            this.password = user.Password;
-            this.tarif = user.Tarif;
-            this.duration = user.Duration;
-            this.sort = user.Sort;
-            this.ufo = user.Ufo;
+            this.Name = user.Name;
+            this.Password = user.Password;
+            this.Tarif = user.Tarif;
+            this.Duration = user.Duration;
+            this.Sort = user.Sort;
+            this.Ufo = user.Ufo;
 
             this.BotProgramList = user.BotProgramList.ToList();
     }
 
         public User(string Name, string Password) : this()
         {
-            name = Name;
-            password = Password;
-            tarif = 8;
-            duration = 2;
-            sort = 1;
-            ufo = true;
+            this.Name = Name;
+            this.Password = Password;
+            Tarif = 8;
+            Duration = 2;
+            Sort = 1;
+            Ufo = true;
 
-            BotProgramList = new List<BotProgram>(); 
-            BotProgramList.Add(new BotProgram("Standard", new List<int>() { 0, 1, 2, 3, 4, 5 }));
+            BotProgramList = new List<BotProgram>
+            {
+                new BotProgram("Standard", new List<int>() { 0, 1, 2, 3, 4, 5 })
+            };
+        }
+
+        public override string ToString()
+        {
+            return this.Name;
         }
 
         [JsonConstructor]
         public User(string Name, string Password, int Tarif, int Duration, int Sort, bool Ufo, List<BotProgram> BotProgramList)
         {
-            name = Name;
-            password = Password;
-            tarif = Tarif;
-            duration = Duration;
-            sort = Sort;
-            ufo = Ufo;
+            this.Name = Name;
+            this.Password = Password;
+            this.Tarif = Tarif;
+            this.Duration = Duration;
+            this.Sort = Sort;
+            this.Ufo = Ufo;
             this.BotProgramList = BotProgramList;
         }
     }

@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace HowrseBot.DataModel
 {
-    
+    //Multithreaded Singleton
+    //https://msdn.microsoft.com/en-us/library/ff650316.aspx
+
     public sealed class StaticData
     {
         private static volatile StaticData instance;

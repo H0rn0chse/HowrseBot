@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace HowrseBot.DataModel
 {
+    //Multithreaded Singleton
+    //https://msdn.microsoft.com/en-us/library/ff650316.aspx
+
     public sealed class LocalData
     {
         private static volatile LocalData instance;

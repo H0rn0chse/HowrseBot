@@ -18,14 +18,14 @@ namespace HowrseBot.ViewModel
 
         public MainViewModel()
 		{
-			this.Data = new DataCollection();
-            this.User = new UserCollection();
+            Data = new DataCollection();
+            User = new UserCollection();
             _userList = LocalData.Instance.Load< ObservableCollection<User>>();
             
             if(_userList.Count == 0)
             {
                 _userList.Add(new User("a", "b"));
-                saveSession();
+                SaveSession();
             }
             else
             {
@@ -38,7 +38,7 @@ namespace HowrseBot.ViewModel
             int index = -1;
             foreach(User user in _userList)
             {
-                if(user.name == User.Name)
+                if(user.Name == User.Name)
                 {
                     index = _userList.IndexOf(user);
                 }
@@ -111,15 +111,6 @@ namespace HowrseBot.ViewModel
 			}
 			string target = (dropInfo.VisualTarget as FrameworkElement).Name;
 			string source = (dropInfo.DragInfo.VisualSource as FrameworkElement).Name;
-
-			if(source == "Peter")
-			{
-				source = "CommandPanel";
-			}
-			if (target == "Peter")
-			{
-				target = "CommandPanel";
-			}
 
 			//Handling different Locations
 			if(source == "CommandPanel" && target == "CommandBin")
